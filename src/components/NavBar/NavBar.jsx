@@ -69,7 +69,7 @@ const Nav = styled.div`
     flex-direction: column;
     padding:0;
     margin-right:auto;
-    width:95%;
+    width:100%;
     height:50vh;
     
     

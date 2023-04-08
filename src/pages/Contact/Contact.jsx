@@ -23,7 +23,8 @@ const ContactContainer = styled.div`
     height:120vh;
     flex-direction: column;
     padding:22px;
-    width:102%;
+    width:100%;
+    
     
     
   }
@@ -45,6 +46,7 @@ const ContactColumn = styled.div`
   border-bottom: 5px solid transparent;
   border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
   border-image-slice: 1;
+  padding-left:25px;
   
     
     
@@ -67,7 +69,7 @@ const FormWrapper = styled.div`
   const BioWrapper = styled.div`
   margin-top:70px;
   padding-left:20px;
-  padding-right:70px;
+  padding-right:60px;
   text-align: justify;
   font-family: 'Raleway', sans-serif;
   margin-bottom:20px;

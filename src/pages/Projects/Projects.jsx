@@ -28,8 +28,9 @@ const CardWrapper = styled.div`
   text-align:left;
 
   @media (max-width: 768px) {
-    width:102%;
-    
+    width:99%;
+    padding:2px;
+  
   }
 
  
@@ -63,10 +64,12 @@ const PageWrapper = styled.div`
 
   
   @media (max-width: 768px) {
-    width:102%;
+    width:100%;
     border-top: 5px solid transparent;
     border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
     border-image-slice: 1;
+    font-size:15px;
+
     
   }
 
@@ -205,23 +208,18 @@ const Projects = () => {
               margin={10}
              
              
-              
-             
             >
               <Image
                 objectFit="cover"
-                maxW={{ base: "100%", sm: "200px" }}
+                maxW={{ base: "40%", sm: "200px" }}
                 src={repo.owner.avatar_url}
                 alt="profile of Nova"
-                border={10}
-                borderColor={"red"}
-                borderStyle={"solid"}
                 marginRight={5}
                 
               />
 
               <Stack>
-                <CardBody>
+                <CardBody >
                   <Heading size="sm">Project's Name</Heading>
                   <Text py="1">{repo.name}</Text>
                 </CardBody>
