@@ -14,6 +14,11 @@ const Img = styled.img`
   border: 5px hidden #1C6EA4;
   border-radius: 40px 40px 40px 40px;
   box-shadow: 11px 16px 7px -2px #AFFFA1;
+
+  
+  @media (max-width: 768px) {
+    width:250px;
+  }
   
 `;
 

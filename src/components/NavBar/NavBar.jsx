@@ -12,7 +12,7 @@ const Nav = styled.div`
   font-family: 'Raleway', sans-serif;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content:center;
   background-color: ${props => props.theme === "light" ? "#fff" : "#333"};
   color: ${props => props.theme === "light" ? "#333" : "#fff" };
   font-size:17px;
@@ -68,10 +68,12 @@ const Nav = styled.div`
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    
     padding:0;
-    width:102%;
+    margin-right:auto;
+    
+    
+   
   
   
     
@@ -104,6 +106,7 @@ const Nav = styled.div`
     img{
       padding:0;
       margin:0;
+     
     }
   }
 `;

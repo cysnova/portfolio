@@ -15,8 +15,8 @@ const HomeContainer = styled.div`
  
 
   @media (max-width: 768px) {
-    height: 100%;
-    
+  
+    height: 85vh;
   }
 
 `;
@@ -29,6 +29,7 @@ const RowWrapper = styled.div`
   
   @media (max-width: 768px) {
     flex-direction: column;
+    
     
   }
 `;
@@ -50,7 +51,7 @@ text-align:left;
   height: 250px;
   margin: 30px;
   padding:30px;
-  width: 800px;
+ 
   
 }
 `;
@@ -89,6 +90,7 @@ justify-content: flex-end;
   justify-content: center;
   width:500px;
   margin:30px;
+  height:90px;
 }
 `;
 
