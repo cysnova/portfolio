@@ -1,0 +1,28 @@
+
+  .carousel-item-2 img {
+ 
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    display:block;
+    background-color: #302244;
+    border: 5px solid transparent;
+    border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+    border-image-slice: 1;
+    margin: 20px auto;
+  }
+
+  .ccarousel-control{
+  
+  filter: invert(1); 
+  font-size: 30px;
+  color:black;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+  width: 40px;
+  height: 40px;
+}
+
