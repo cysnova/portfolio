@@ -23,6 +23,7 @@ const ContactContainer = styled.div`
     height:120vh;
     flex-direction: column;
     padding:22px;
+    width:102%;
     
     
   }

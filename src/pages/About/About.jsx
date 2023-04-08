@@ -37,14 +37,16 @@ const AboutContainer = styled.div`
   color: ${props => props.theme === "light" ? "#333" : "#fff"};
   width:100%;
   padding:0;
-  height:80vh;
+  height:82vh;
   margin: 0 auto;
   
 
   @media (max-width: 768px) {
    
-    width:101%;
-    height:65vh;
+    width:99%;
+    height:50vh;
+    padding-top:60px;
+    padding-right:45px;
     border-top: 5px solid transparent;
     border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
     border-image-slice: 1;
@@ -55,7 +57,7 @@ const AboutContainer = styled.div`
 const StyledCarousel = styled(Carousel)`
   width:65%;
   margin:auto;
-  padding-top:100px;
+ 
 
   .carousel-caption {
     color:black;
@@ -64,7 +66,7 @@ const StyledCarousel = styled(Carousel)`
     font-size:18px;
   }
   @media (max-width: 768px) {
-    width:98%;
+    width:92%;
     height:65%;
     
     

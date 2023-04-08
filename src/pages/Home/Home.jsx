@@ -16,8 +16,8 @@ const HomeContainer = styled.div`
 
   @media (max-width: 768px) {
   
-    height: 85vh;
-    width:101%;
+    height: 100vh;
+ 
   }
 
 `;
@@ -49,7 +49,8 @@ text-align:left;
   border-bottom: 5px solid transparent;
   border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
   border-image-slice: 1;
-  height: 250px;
+  height: 300px;
+  width:400px;
   margin: 30px;
   padding:30px;
  

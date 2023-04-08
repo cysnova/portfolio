@@ -28,7 +28,7 @@ const CardWrapper = styled.div`
   text-align:left;
 
   @media (max-width: 768px) {
-    width:100%;
+    width:102%;
     
   }
 
@@ -62,7 +62,14 @@ const PageWrapper = styled.div`
   padding:1rem;
 
   
+  @media (max-width: 768px) {
+    width:102%;
+    border-top: 5px solid transparent;
+    border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+    border-image-slice: 1;
     
+  }
+
     
 `;
 
@@ -122,6 +129,11 @@ const ButtonStyle = styled.div`
     background-color: rgba(0, 0, 255, 0.75);
   }
 
+  @media (max-width: 768px) {
+    font-size:13px;
+    
+  }
+
 `;
 
 const Wrapper = styled.div`
@@ -129,8 +141,9 @@ padding-top:100px;
 height:80vh;
 
 @media (max-width: 768px) {
-  font-size:25px;
-  height:50vh;
+  width:60%;
+  padding-right:15px
+}
  
 `;
 

@@ -67,20 +67,16 @@ const Nav = styled.div`
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
-    
     padding:0;
     margin-right:auto;
-    width:101%;
+    width:95%;
+    height:50vh;
     
-    
-   
-  
-  
     
     
     ul {
         margin: 0;
-        padding: 20px;
+        padding: 5px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -91,12 +87,15 @@ const Nav = styled.div`
           margin-top:30px;
 
         }
+
       }
     
   
     button {
       align-items: center;
       margin:0;
+      margin-bottom:20px;
+   
     }
 
     a{
@@ -105,7 +104,7 @@ const Nav = styled.div`
   
     img{
       padding:0;
-      margin:0;
+      margin:10px;
      
     }
   }
