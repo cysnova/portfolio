@@ -19,20 +19,30 @@ import {
 } from "@chakra-ui/react";
 
 const CardWrapper = styled.div`
+
   background-color: ${props => props.theme === "light" ? "#fff" : "#333"};
   color: ${props => props.theme === "light" ? "#333" : "#fff"};
-  border: 1px solid ${props => props.theme === "light" ? "#333" : "#fff"};
-  width:500px;
-  height:auto;
+  border: 3px solid ${props => props.theme === "light" ? "#333" : "#fff"};
+  margin-bottom:15px;
+  width:50%;
+  text-align:left;
+
+  @media (max-width: 768px) {
+    width:100%;
+    
+  }
+
  
   
 `;
 
 const PagWrapper = styled.div`
+
 display:flex;
 justify-content:center;
 background-color: ${props => props.theme === "light" ? "#fff" : "#333"};
 margin:auto;
+height:20vh;
 
 `;
 
@@ -42,7 +52,7 @@ const PageWrapper = styled.div`
   flex-direction:column;
   justify-content: center;
   align-items: center;
-  height:80vh;
+  height:100%;
   background-color: ${props => props.theme === "light" ? "#fff" : "#333"};
   color: ${props => props.theme === "light" ? "#333" : "#fff"};
   text-align:center;
@@ -50,6 +60,8 @@ const PageWrapper = styled.div`
   font-size:2rem;
   letter-spacing:5px;
   padding:1rem;
+
+  
     
     
 `;
@@ -61,8 +73,10 @@ const ButtonStyle = styled.div`
   z-index: 1;
   overflow: hidden;
   text-decoration: none;
-  font-size: 1.3rem;
+  font-size: 1rem;
   margin-top:15px;
+  height:auto;
+  
   
   
   padding: 0.75em 1em;
@@ -100,6 +114,7 @@ const ButtonStyle = styled.div`
   &:hover, &:focus {
     color: white;
     background-color: lightblue;
+    cursor:pointer;
   }
 
   &:hover:before, &:focus:before, &:hover:after, &:focus:after {
@@ -109,6 +124,15 @@ const ButtonStyle = styled.div`
 
 `;
 
+const Wrapper = styled.div`
+padding-top:100px;
+height:80vh;
+
+@media (max-width: 768px) {
+  font-size:25px;
+  height:50vh;
+ 
+`;
 
 const Projects = () => {
   const {theme, toggleTheme } = useContext(ThemeContext);
@@ -133,7 +157,7 @@ const Projects = () => {
 
   const renderPaginationItems = () => {
     const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(repositories.length / itemsPerPage); i++) {
+    for (let i = 1; i <= Math.ceil((repositories.length - 1) / itemsPerPage); i++) {
       pageNumbers.push(i);
     }
     return pageNumbers.map(number => (
@@ -158,35 +182,48 @@ const Projects = () => {
       .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
       .map((repo) => {
         return (
-          <CardWrapper key={repo.id} theme={theme}>
+         
+            <CardWrapper key={repo.id} theme={theme}>
             <Card
               theme={theme}
               direction={{ base: "column", sm: "row" }}
               overflow="hidden"
               variant="outline"
+              margin={10}
+             
+             
+              
+             
             >
               <Image
                 objectFit="cover"
                 maxW={{ base: "100%", sm: "200px" }}
                 src={repo.owner.avatar_url}
                 alt="profile of Nova"
+                border={10}
+                borderColor={"red"}
+                borderStyle={"solid"}
+                marginRight={5}
+                
               />
 
               <Stack>
                 <CardBody>
-                  <Heading size="md">Project's Name</Heading>
-                  <Text py="2">{repo.name}</Text>
+                  <Heading size="sm">Project's Name</Heading>
+                  <Text py="1">{repo.name}</Text>
                 </CardBody>
                 <CardFooter>
                   <a href={repo.clone_url}>
-                    <ButtonStyle variant="solid" colorScheme="blue">
-                      Click here
+                    <ButtonStyle  theme={theme} class="text-sm" variant="solid" colorScheme="blue">
+                     Read
                     </ButtonStyle>
                   </a>
                 </CardFooter>
               </Stack>
             </Card>
           </CardWrapper>
+      
+          
         );
       })}
       <PagWrapper  theme={theme}>
@@ -197,13 +234,13 @@ const Projects = () => {
 
   </>
 ) : (
-  <>
+  <Wrapper>
   <Bio
         title={"Let's check out my projects!"}
         content={` Follow the link to explore my repositories ♡`}
       />
       <ButtonStyle theme={theme} onClick={fetchRepositories}>˗ˏˋ Read More ´ˎ˗  </ButtonStyle>
-  </>
+  </Wrapper>
    
  
 )}

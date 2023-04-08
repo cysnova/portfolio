@@ -17,13 +17,14 @@ const ContactContainer = styled.div`
   flex-direction: row;
   gap: 32px;
   height:80vh;
-  @media screen and (max-width: 800px) {
-    flex-direction: column;
-   
-  }
 
-  @media screen and (max-width: 480px) {
-    padding: 50px;
+  @media (max-width: 768px) {
+    font-size:20px;
+    height:120vh;
+    flex-direction: column;
+    padding:22px;
+    
+    
   }
 `;
 
@@ -34,21 +35,31 @@ const ContactColumn = styled.div`
   min-width: 300px;
   max-width: 500px;
  
+  @media (max-width: 768px) {
+
+    &:first-child{
+       border-top: 5px solid transparent;
+    }
   
+  border-bottom: 5px solid transparent;
+  border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+  border-image-slice: 1;
+  
+    
+    
+  }
   
 `;
 
 const FormWrapper = styled.div`
   width: 100%;
 
-  @media screen and (min-width: 768px) {
-    width: auto;
-  }
-  
-  @media screen and (max-width: 480px) {
+  @media (max-width: 768px) {
+    font-size:20px;
+    flex-direction: column;
     padding:10px;
-    margin:10px;
-  }
+    width:90%
+    
   `;
 
 

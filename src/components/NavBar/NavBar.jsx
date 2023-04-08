@@ -12,6 +12,7 @@ const Nav = styled.div`
   font-family: 'Raleway', sans-serif;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: ${props => props.theme === "light" ? "#fff" : "#333"};
   color: ${props => props.theme === "light" ? "#333" : "#fff" };
   font-size:17px;
@@ -28,8 +29,8 @@ const Nav = styled.div`
   }
 
   button {
-    width:50px;
-    height:40px;
+    width:30px;
+    height:32px;
     font-size:1rem;
     border: none;
     border-radius: 0.25rem;
@@ -37,9 +38,10 @@ const Nav = styled.div`
     color: ${props => props.theme === "light" ? "#fff" : "#333" };
     cursor: pointer;
     align-self: center;
-    margin-right: 10px;
+  
     border-radius:40%;
     transition: box-shadow 300ms ease-out;
+    
   }
 
   button:hover {
@@ -69,7 +71,10 @@ const Nav = styled.div`
     justify-content: center;
     align-items: center;
     padding:0;
-    margin:0;
+    width:102%;
+  
+  
+    
     
     ul {
         margin: 0;
@@ -81,7 +86,8 @@ const Nav = styled.div`
         gap: 30px;
 
         &>:first-child{
-          margin-top:20px;
+          margin-top:30px;
+
         }
       }
     
