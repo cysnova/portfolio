@@ -38,7 +38,6 @@ const Nav = styled.div`
     color: ${props => props.theme === "light" ? "#fff" : "#333" };
     cursor: pointer;
     align-self: center;
-  
     border-radius:40%;
     transition: box-shadow 300ms ease-out;
     
@@ -71,6 +70,7 @@ const Nav = styled.div`
     
     padding:0;
     margin-right:auto;
+    width:101%;
     
     
    
@@ -80,7 +80,7 @@ const Nav = styled.div`
     
     ul {
         margin: 0;
-        padding: 0;
+        padding: 20px;
         display: flex;
         flex-direction: column;
         align-items: center;

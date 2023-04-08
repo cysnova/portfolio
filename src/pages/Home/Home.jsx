@@ -17,6 +17,7 @@ const HomeContainer = styled.div`
   @media (max-width: 768px) {
   
     height: 85vh;
+    width:101%;
   }
 
 `;
