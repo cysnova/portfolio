@@ -48,13 +48,64 @@ const TextArea = styled.textarea`
 
 const Button = styled.button`
     font-family: 'Delicious Handrawn', cursive;
-    font-size:25px;
-    margin-top:20px;
+    margin-top:30px;
+    padding:0;
     display:block;
     width:100%; 
-    height:50px;
+    height:58px;
     border-radius:5px;
-`;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-decoration: none;
+    font-size: 2rem;
+    color:black;
+    border: 4px solid transparent;
+    border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+    border-image-slice: 1;
+    transition: 4s;
+    text-align: center;
+
+    &:before, &:after {
+        content: "";
+        position: absolute;
+        top: -1.5em;
+        z-index: -1;
+        width: 200%;
+        aspect-ratio: 1;
+        border: none;
+        border-radius: 40%;
+        background-color: rgba(0, 0, 255, 0.25);
+        transition: 4s;
+    }
+
+    &:before {
+        left: -80%;
+        transform: translate3d(0, 5em, 0) rotate(-340deg);
+    }
+
+    &:after {
+        right: -80%;
+        transform: translate3d(0, 5em, 0) rotate(390deg);
+    }
+
+    &:hover, &:focus {
+        color: white;
+        background-color: lightblue;
+        cursor:pointer;
+    }
+
+    &:hover:before, &:focus:before, &:hover:after, &:focus:after {
+        transform: none;
+        background-color: rgba(0, 0, 255, 0.75);
+    }
+
+    @media (max-width: 768px) {
+        font-size:13px;
+        
+    }
+
+    `;
 const Form = () => {
     const {theme, toggleTheme} = useContext(ThemeContext);
     const[formInputs ,setFormInputs] = useState({

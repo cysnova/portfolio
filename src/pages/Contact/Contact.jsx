@@ -19,10 +19,10 @@ const ContactContainer = styled.div`
   height:80vh;
 
   @media (max-width: 768px) {
-    font-size:20px;
+    font-size:15px;
     height:120vh;
     flex-direction: column;
-    padding:22px;
+    padding:30px;
     width:100%;
     
     

@@ -22,13 +22,13 @@ const CardWrapper = styled.div`
 
   background-color: ${props => props.theme === "light" ? "#fff" : "#333"};
   color: ${props => props.theme === "light" ? "#333" : "#fff"};
-  border: 3px solid ${props => props.theme === "light" ? "#333" : "#fff"};
+  border: 3px dotted ${props => props.theme === "light" ? "#333" : "#fff"};
   margin-bottom:15px;
   width:50%;
   text-align:left;
 
   @media (max-width: 768px) {
-    width:99%;
+    width:95%;
     padding:2px;
   
   }
@@ -62,7 +62,7 @@ const PageWrapper = styled.div`
   letter-spacing:5px;
   padding:1rem;
 
-  
+
   @media (max-width: 768px) {
     width:100%;
     border-top: 5px solid transparent;
@@ -86,9 +86,6 @@ const ButtonStyle = styled.div`
   font-size: 1rem;
   margin-top:15px;
   height:auto;
-  
-  
-  
   padding: 0.75em 1em;
   color: ${props => props.theme === "light" ? "#333" : "#fff"};
   border: 5px solid transparent;
