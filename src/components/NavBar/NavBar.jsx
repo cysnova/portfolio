@@ -54,10 +54,12 @@ const Nav = styled.div`
   }
   
   a:hover {
-    border-bottom: 5px solid rgba(156, 214, 101, 1);
-    border-top: 5px solid rgba(156, 214, 101, 1);
-    border-radius: 5px;
+    font-family: 'Delicious Handrawn', cursive;
+    font-size:1.5rem;
   }
+    
+    
+    
   
   img{
     width:150px;
@@ -97,7 +99,7 @@ const Nav = styled.div`
       margin-bottom:20px;
    
     }
-
+    
     a{
       flex-direction: column;
     }

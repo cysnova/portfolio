@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { ChakraProvider } from "@chakra-ui/react";
 import ThemeContext from '../../context/ThemeContext'
@@ -155,18 +155,18 @@ const Projects = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(3);
 
-  const fetchRepositories = async () => {
-    try {
-      const response = await axios.get(
-        `https://api.github.com/users/${username}/repos`
-      );
-      console.log(response);
-      setRepositories(response.data);
-      setDataFetched(true);
-    } catch (error) {
-      console.log(`Error fetching respositories: ${error}`);
-    }
-  };
+    const fetchRepositories = async () => {
+      try {
+        const response = await axios.get(
+          `https://api.github.com/users/${username}/repos`
+        );
+        console.log(response);
+        setRepositories(response.data);
+        setDataFetched(true);
+      } catch (error) {
+        console.log(`Error fetching respositories: ${error}`);
+      }
+    };
 
   const renderPaginationItems = () => {
     const pageNumbers = [];

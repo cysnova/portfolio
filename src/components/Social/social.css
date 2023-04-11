@@ -1,7 +1,6 @@
 
 .icon{
     padding: 0px;
-    margin:0;
     margin: 10px;
     list-style: none;
 }
@@ -16,16 +15,19 @@
     width: 40px;
     height: 35px;
     line-height:30px;
-    border-radius: 40% 0;
+    border-radius: 40% 0%;
     background: #49cda3;
     font-size: 22px;
     color: #fff;
-    box-shadow: 0 0 0 2px rgba(104, 89, 89, 0.5),0 0 0 4px rgba(108, 106, 106, 0.8);
+    box-shadow: 0 0 0 2px rgba(104, 89, 89, 0.5),0 0 0 2px rgba(108, 106, 106, 0.8);
     transition: all 0.3s ease 0s;
 }
 .icon li a:hover{
     background: #fff;
     color: #21efb1;
     box-shadow: 0 0 15px rgba(0,0,0,0.5) inset,0 0 10px #fff;
+    transform: translate(8px, 0px);
 }
+ 
 
+  

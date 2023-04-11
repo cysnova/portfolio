@@ -120,6 +120,8 @@ font-family: 'Delicious Handrawn', cursive;
 
 &:hover {
   background-color: #fff;
+  font-size:1.3rem;
+
 }
 
 &:active {
