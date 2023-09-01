@@ -1,152 +1,153 @@
-import React, { useContext,useState } from 'react'
-import styled from 'styled-components'
-import ThemeContext from '../../context/ThemeContext'
+import React, { useContext, useState, useEffect } from 'react';
+import styled from 'styled-components';
+import ThemeContext from '../../context/ThemeContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../About/about.css'
-import FeaturedProject from '../../assets/featured-project.jpg'
-import AboutMe from '../../assets/about-me.jpg'
-import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption,
-} from 'reactstrap';
-
-const items = [
-  {
-    src: FeaturedProject,
-    altText: 'Slide 1',
-    caption: `╰┈➤ Featured project  ☄. *. ⋆`,
-    link: 'https://look-gorgeous.netlify.app/',
-    key: 1,
-  },
-  {
-    src:  AboutMe,
-    altText: 'Slide 2',
-    caption: `   ╰┈➤ ˗ˏˋ✎ My Blog ´ˎ˗ ☄`,
-    key: 2,
-    link: 'https://dev.to/cysnova/about-nova-1le8',
-  },
-];
-
 
 const AboutContainer = styled.div`
-
-  background-color: ${props => props.theme === "light" ? "#fff" : "#333"};
-  color: ${props => props.theme === "light" ? "#333" : "#fff"};
-  width:100%;
-  padding:0;
-  height:82vh;
+  background-color: ${(props) => (props.theme === 'light' ? '#fff' : '#333')};
+  color: ${(props) => (props.theme === 'light' ? '#333' : '#fff')};
+  width: 100%;
+  padding: 0;
+  height: 82vh;
   margin: 0 auto;
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
 
   @media (max-width: 768px) {
-   
-    width:100%;
-    height:50vh;
-    padding-top:60px;
-  
-    border-top: 5px solid transparent;
-    border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
-    border-image-slice: 1;
+    width: 100%;
+    height: 50vh;
+    padding-top: 60px;
 
+    border-top: 5px solid transparent;
+    border-image: linear-gradient(
+      to bottom right,
+      #b827fc 0%,
+      #2c90fc 25%,
+      #b8fd33 50%,
+      #fec837 75%,
+      #fd1892 100%
+    );
+    border-image-slice: 1;
   }
 `;
 
-const StyledCarousel = styled(Carousel)`
-  width:65%;
-  margin:auto;
- 
+const AboutText = styled.p`
+  margin-top: 100px;
+  font-family: 'Delicious Handrawn', cursive;
+  white-space: pre-line;
+  word-spacing: 0.5em;
+  font-family: 'Delicious Handrawn', cursive;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  padding: 1rem;
+`;
 
-  .carousel-caption {
-    color:black;
-    font-family: 'Delicious Handrawn', cursive;
-    letter-spacing:4px;
-    font-size:18px;
+const ButtonLink = styled.a`
+  text-decoration: none;
+`;
+
+const ButtonStyle = styled.div`
+  font-family: 'Delicious Handrawn', cursive;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  height: auto;
+  padding: 1em 2em;
+  color: ${(props) => (props.theme === 'light' ? '#333' : '#fff')};
+  border: 5px solid transparent;
+  border-image: linear-gradient(
+    to bottom right,
+    #b827fc 0%,
+    #2c90fc 25%,
+    #b8fd33 50%,
+    #fec837 75%,
+    #fd1892 100%
+  );
+  border-image-slice: 1;
+
+  transition: 4s;
+  text-align: center;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: -1.5em;
+    z-index: -1;
+    width: 200%;
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 40%;
+    background-color: rgba(0, 0, 255, 0.25);
+    transition: 4s;
   }
+
+  &:before {
+    left: -80%;
+    transform: translate3d(0, 5em, 0) rotate(-340deg);
+  }
+
+  &:after {
+    right: -80%;
+    transform: translate3d(0, 5em, 0) rotate(390deg);
+  }
+
+  &:hover,
+  &:focus {
+    color: white;
+    background-color: lightblue;
+    cursor: pointer;
+  }
+
+  &:hover:before,
+  &:focus:before,
+  &:hover:after,
+  &:focus:after {
+    transform: none;
+    background-color: rgba(0, 0, 255, 0.75);
+  }
+
   @media (max-width: 768px) {
-    width:92%;
-    height:65%;
-    
-    
+    font-size: 1rem;
+  }
 `;
 
 const About = () => {
   const { theme } = useContext(ThemeContext);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
-  const next = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
-    setActiveIndex(nextIndex);
-  };
+  const [displayText, setDisplayText] = useState('');
+  const fullText =
+    'Hello, my name is Nova.\nI am a web developer, based in Vancouver.'; // Use \n to create a new line
 
-  const previous = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
-    setActiveIndex(nextIndex);
-  };
+  useEffect(() => {
+    let currentIndex = 0;
 
-  const goToIndex = (newIndex) => {
-    if (animating) return;
-    setActiveIndex(newIndex);
-  };
+    const typeText = () => {
+      if (currentIndex < fullText.length) {
+        setDisplayText(fullText.substring(0, currentIndex + 1));
+        currentIndex++;
+        setTimeout(typeText, 100);
+      }
+    };
 
-  const slides = items.map((item) => {
-    return (
-      <CarouselItem
-      className="carousel-item-2"
-        onExiting={() => setAnimating(true)}
-        onExited={() => setAnimating(false)}
-        key={item.src}
-      >
-        {item.link ? (
-          <a href={item.link} target="_blank" rel="noopener noreferrer">
-            <img src={item.src} alt={item.altText} />
-          </a>
-        ) : (
-          <img src={item.src} alt={item.altText} />
-        )}
-        <CarouselCaption
-          captionHeader={item.caption}
-        />
-      </CarouselItem>
-    );
-  });
+    typeText();
+  }, []);
+
   return (
-    
     <AboutContainer theme={theme}>
+      <AboutText>{displayText}</AboutText>
 
-    <StyledCarousel
-      activeIndex={activeIndex}
-      next={next}
-      previous={previous}
-      
-     
-    >
-      <CarouselIndicators
-        items={items}
-        activeIndex={activeIndex}
-        onClickHandler={goToIndex}
-      />
-      {slides}
-      <CarouselControl
-        direction="prev"
-        directionText="Previous"
-        onClickHandler={previous}
-        
-      />
-      <CarouselControl
-        direction="next"
-        directionText="Next"
-        onClickHandler={next}
-        
-      />
-    </StyledCarousel>
+      <ButtonLink href="https://dev.to/cysnova/about-nova-1le8">
+        <ButtonStyle theme={theme}>˗ˏˋ Learn More ´ˎ˗</ButtonStyle>
+      </ButtonLink>
     </AboutContainer>
-   
-     )
-}
-export default About
+  );
+};
 
+export default About;
